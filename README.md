@@ -1,6 +1,6 @@
 ### Приложение Paint на JavaFX и SpringBoot
-Java 11
-SpringBoot 2.7.16
+- Java 11
+- SpringBoot 2.7.16
 #### Описание
 
 Это небольшое приложение Paint, созданное на JavaFX и Spring. Приложение позволяет пользователю создавать простые фигуры.

@@ -10,7 +10,7 @@ public interface ShapeService {
     Rectangle square(Color fillColor, Color strokeColor, double posX, double posY, double x, double y,
                      double lineSize, double opacity);
 
-    Rectangle image(Color fillColor, Color strokeColor, double posX, double posY, double x, double y,
+    Rectangle image(Color ignoredFillColor, Color strokeColor, double posX, double posY, double x, double y,
                     double lineSize, double opacity);
 
     Rectangle ellipse(Color fillColor, Color strokeColor, double posX, double posY, double x, double lineSize,

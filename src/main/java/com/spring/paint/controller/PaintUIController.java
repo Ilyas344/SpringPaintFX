@@ -5,12 +5,10 @@ import com.spring.paint.service.DragResizeMod;
 import com.spring.paint.service.FileService;
 import com.spring.paint.service.ShapeService;
 import javafx.application.Platform;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
-
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -18,14 +16,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import jfxtras.labs.util.event.MouseControlUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import javax.imageio.ImageIO;
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -71,7 +65,7 @@ public class PaintUIController implements Initializable {
     private final Pane mainPane = new Pane();
 
     @FXML
-    private JFXComboBox<Integer> cbLayer = new JFXComboBox<>();
+    private final JFXComboBox<Integer> cbLayer = new JFXComboBox<>();
 
     @FXML
     private JFXButton btnAddShape = new JFXButton();
@@ -80,7 +74,7 @@ public class PaintUIController implements Initializable {
     private double positionY = 0;
     private String item;
     private final ShapeService tools;
-    private final FileService  fileService;
+    private final FileService fileService;
 
 
     @Override
@@ -211,9 +205,7 @@ public class PaintUIController implements Initializable {
     }
 
     public void saveFile() {
-        btnSave.setOnMouseClicked(event1 -> {
-            fileService.saveFile(mainPane);
-        });
+        btnSave.setOnMouseClicked(event1 -> fileService.saveFile(mainPane));
     }
 
     public void newProject() {

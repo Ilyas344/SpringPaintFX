@@ -1,6 +1,5 @@
 package com.spring.paint.service;
 
-import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
@@ -126,7 +125,7 @@ public class DragResizeMod {
         node.setOnMouseReleased(resizer::mouseReleased);
     }
 
-    protected void mouseReleased(MouseEvent event) {
+    protected void mouseReleased(MouseEvent ignoredEvent) {
         node.setCursor(Cursor.DEFAULT);
         state = S.DEFAULT;
     }

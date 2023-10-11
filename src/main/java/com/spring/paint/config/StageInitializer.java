@@ -4,10 +4,7 @@ package com.spring.paint.config;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
@@ -16,11 +13,8 @@ import org.springframework.stereotype.Component;
 
 import java.net.URL;
 
-import static com.sun.javafx.scene.control.skin.Utils.getResource;
-
 
 @Component
-
 public class StageInitializer implements ApplicationListener<StageReadyEvent> {
 
     private final String applicationTitle;
@@ -28,8 +22,8 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
     private final Resource fxml;
     private final ApplicationContext applicationContext;
 
-    public StageInitializer(@Value("${spring.application.ui.title}")String applicationTitle,
-                            @Value("${java.fx.fxml}")Resource fxml,
+    public StageInitializer(@Value("${spring.application.ui.title}") String applicationTitle,
+                            @Value("${java.fx.fxml}") Resource fxml,
                             ApplicationContext applicationContext) {
         this.applicationTitle = applicationTitle;
         this.fxml = fxml;

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.spring.paint.controller.PaintUIController">
+   <top>
+      <VBox prefHeight="70.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                     <MenuItem mnemonicParsing="false" onAction="#newProject" text="Clear" />
+                     <MenuItem mnemonicParsing="false" onAction="#onExit" text="Close" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+               <items>
+                  <JFXButton fx:id="btnSave" text="Save" />
+                  <Separator orientation="VERTICAL">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding></Separator>
+                  <JFXComboBox fx:id="cbShapes" focusColor="#503256" promptText="Квадрат" unFocusColor="#7b4886" />
+                  <JFXColorPicker fx:id="cpFillColor" editable="true" maxHeight="41.0" maxWidth="100.0" prefHeight="41.0" prefWidth="100.0" promptText="Выбери цвет">
+                      <value>
+                          <Color red="0.78" green="0.106" blue="0.156" />
+                      </value>
+                  </JFXColorPicker>
+                  <JFXButton fx:id="btnAddShape" text="Добавить фигуру" />
+               </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <VBox BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="10.0" top="10.0" />
+         </BorderPane.margin></VBox>
+   </left>
+   <right>
+      <VBox prefHeight="83.0" prefWidth="202.0" BorderPane.alignment="CENTER">
+         <children>
+            <Accordion fx:id="acExp" prefHeight="242.0" prefWidth="202.0">
+              <panes>
+                <TitledPane fx:id="tpFills" animated="false" prefHeight="118.0" prefWidth="202.0" text="Контур фигуры">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="118.0" prefWidth="200.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label text="Толщина контура" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox prefHeight="24.0" prefWidth="102.0" spacing="10.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <children>
+                                          <JFXSlider fx:id="sldBorderSize" value="1.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="62.0" prefWidth="194.0" spacing="10.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="126.0" text="Цвет контура" />
+                                          <JFXColorPicker fx:id="cpBorderColor" editable="true" prefHeight="25.0" prefWidth="151.0">
+                                              <value>
+                                                  <Color red="0.234" green="0.0" blue="0.116" />
+                                              </value>
+                                          </JFXColorPicker>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                </TitledPane>
+                  <TitledPane fx:id="tpFills1" animated="false" layoutX="10.0" layoutY="10.0" text="Настройки текста">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="164.0" prefWidth="200.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox layoutX="10.0" layoutY="12.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Текст" />
+                                          <JFXTextField fx:id="tfTextString" text="hello world" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label text="Размер шрифта" />
+                                          <JFXTextField fx:id="tfFontSize" promptText="12" text="12" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label text="Цвет теста" />
+                                          <JFXColorPicker fx:id="cpTextColor" editable="true" maxHeight="41.0" maxWidth="100.0" prefHeight="41.0" prefWidth="100.0">
+                                             <value>
+                                                <Color red="0.78" green="0.106" blue="0.156" />
+                                             </value>
+                                          </JFXColorPicker>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="12.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Шрифт" />
+                                          <JFXComboBox fx:id="cbbFontStyle" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                  </TitledPane>
+                  <TitledPane fx:id="tpEffects" animated="false" text="Эффекты">
+                     <content>
+                        <AnchorPane focusTraversable="true">
+                           <children>
+                              <VBox>
+                                 <children>
+
+                                    <HBox spacing="10.0">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label text="Прозрачность" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <JFXSlider fx:id="sldOpacity" layoutX="2.0" layoutY="44.0" prefHeight="14.0" prefWidth="157.0" value="100.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <padding>
+                        <Insets bottom="2.0" top="2.0" />
+                     </padding>
+                  </TitledPane>
+              </panes>
+            </Accordion>
+            <Accordion fx:id="acExp1" layoutX="10.0" layoutY="10.0" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <left>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane fx:id="spMain">
+               <content>
+                  <Pane fx:id="tfPosY" style="-fx-background-color: back;" />
+               </content>
+            </ScrollPane>
+         </children>
+      </HBox>
+   </left>
+</BorderPane>
